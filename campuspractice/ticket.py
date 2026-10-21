@@ -1,3 +1,16 @@
+import json
+import os
+def save_tickets(tickets):
+    with open("tickets.json", "w") as file:
+        json.dump(tickets, file, indent=4)
+def load_tickets():
+    try:
+        with open("tickets.json", "r") as file:
+            tickets = json.load(file)
+            return tickets
+    except FileNotFoundError:
+        return []
+
 def create_ticket ():
     print("\n---- CREATE TICKET----")
     while True:
@@ -53,6 +66,10 @@ def create_ticket ():
     "affected user": affected_user,
     "priority": priority
     }
+    tickets = load_tickets()
+    tickets.append(ticket)
+    save_tickets(tickets)
+
     print("\n---CREATED TICKET---:")
     for key, value in ticket.items():
         print (f"{key}: {value}")
