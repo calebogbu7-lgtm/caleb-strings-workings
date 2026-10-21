@@ -59,21 +59,21 @@
 def create_ticket ():
     print("\n---- CREATE TICKET----")
     title = input ("enter your title ")
-    category = input ("enter your category( network, software, hardware, others): ")
-    urgency = input ("enter your urgency(low, meiudm, high): ")
-    status = input ("enter your status(open, in progress, resolved: ")
+    category = input ("enter your category( network, software, hardware, others): ").strip().lower()
+    urgency = input("enter your urgency(low, meiudm, high): ").strip().lower()
     try:
         affected_user = int(input("number of affected user: "))
 
     except ValueError:
         print("Error: Enter a valid whole number")
+        return
     if not title.strip().lower():
         print("enter a valid title")
         return
-    if category.strip().lower() not in ("network, software, hardware, others"):
+    if category not in ("network", "software", "hardware", "others"):
         print("error enter a valid category")
         return
-    if urgency.strip().lower() not in ("low, medium, high"):
+    if urgency not in ("low", "medium", "high"):
         print("enter a valid urgency")
         return
     if urgency == "high" and affected_user >= 10:
