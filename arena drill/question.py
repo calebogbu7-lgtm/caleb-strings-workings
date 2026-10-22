@@ -1,0 +1,4 @@
+
+Implement division_details(a, b). Return a dictionary with three keys: "true_division", "floor_division", and "remainder". true_division should be a / b rounded to 2 decimal places. floor_division should be a // b. remainder should be a % b.
+Implement eligibility_logic(score, attendance, completed_drill). Return "Eligible" only when score is greater than or equal to 70, attendance is greater than or equal to 80, and completed_drill is True. Otherwise return "Not eligible".
+Implement safe_calculator(a, operator, b). Return the result of applying the operator to the two numbers. Supported operators are "+", "-", "*", "/", "%", and "**". If the operator is unknown, return "Invalid operator". If the operator is "/" or "%" and b is 0, return "Cannot divide by zero". Round division results to 2 decimal places.
