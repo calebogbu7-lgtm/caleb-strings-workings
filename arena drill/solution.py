@@ -20,6 +20,7 @@ print(eligibility_logic(80, 90, False))
 
 
 def safe_calculator(a, operator, b):
+
     if operator == "+":
         return a + b
     elif operator == "-":
@@ -27,19 +28,22 @@ def safe_calculator(a, operator, b):
     elif operator == "*":
         return a * b
     elif operator == "/":
-        return round(a / b, 2)
+        try:
+            num = round(a / b, 2)
+
+            return num
+
+        except ZeroDivisionError:
+            return " cannot divide by zero"
+
+        
+            
     elif operator == "%":
         return "a % b"
     elif operator == "**":
         return "a ** b"
-        return operator
-    try:
-        if operator == "/" and operator == "%" and b == "0":
-            return "Cannot be divide by zero"       
-    except:
-        return "Cannot be divide by zero"
-    else:
-        print("invalid operator")
+
+    
 print(safe_calculator(5, "+", 7))
 print(safe_calculator(6, "*", 12))
-print(safe_calculator(2, "/", 9))
+print(safe_calculator(2, "/", 0))
