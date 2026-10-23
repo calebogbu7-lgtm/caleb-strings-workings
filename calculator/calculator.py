@@ -1,3 +1,5 @@
+print("\n---- HERE'S YOUR CALCULATOR---")
+
 def add(a, b):
     return a + b
 
@@ -9,7 +11,12 @@ def multiply(a, b):
 
 
 def divide(a, b):
-    return a / b
+        try:
+            division = (a / b)
+            return division
+        except ZeroDivisionError:
+            print("Error: can't divide by zero")
+        
 
 def modulus(a, b):
     return a % b
@@ -30,15 +37,23 @@ def calculate(a, operator, b):
         return modulus(a, b)
     elif operator == "**":
         return power(a, b)
+while True:
+    try:
+        first_number = float(input("Enter the first number: "))
+        break
+    except ValueError:    
+        print("Error: enter a valid number")
+while True:
+    operator = input("Enter an operation (+, -, *, /, %, **): ")
+    if operator in ["+", "-", "*", "/", "%","**"]:
+        break
     else:
-        return "Invalid operator"
-
-
-first_number = float(input("Enter the first number: "))
-print(first_number)
-
-operator = input("Enter an operation (+, -, *, /, %, **): ")
-second_number = float(input("Enter the second number: "))
-    
+        print("Error: enter a valid operator")
+while True:
+    try:
+        second_number = int(input("Enter the second number: "))
+        break  
+    except ValueError:
+        print("Error: Enter a valid number")
 result = calculate(first_number, operator, second_number)
 print("Result:", result)
