@@ -72,3 +72,36 @@ def list_sum(numbers):
 print(list_sum([]))
 print(list_sum([67, 89, 90]))
 print(list_sum([-67, -78, -23]))
+def count_occurrences(numbers, target):
+    count = 0
+
+    for number in numbers:
+        if number == target:
+            count = count + 1
+
+    return count
+    def find_number(numbers, target):
+    for index in range(len(numbers)):
+        if numbers[index] == target:
+            return index
+
+    return -1
+    def reverse_list(items):
+    result = []
+
+    for item in items:
+        result.insert(0, item)
+
+    return resultdef second_largest(numbers):
+    largest = None
+    second = None
+
+    for number in numbers:
+        if largest is None or number > largest:
+            second = largest
+            largest = number
+
+        elif number != largest and (second is None or number > second):
+            second = number
+
+    return second
